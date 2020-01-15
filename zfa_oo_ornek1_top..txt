@@ -1,0 +1,11 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_OO_ORNEK1_TOP
+*&---------------------------------------------------------------------*
+CLASS : lcl_hesap_makinesi DEFINITION DEFERRED.  "TANIMLANMA TANIMLANMIŞ
+
+DATA: go_hsp1 TYPE REF TO lcl_hesap_makinesi,
+      go_hsp2 TYPE REF TO lcl_hesap_makinesi,
+      go_hsp3 TYPE REF TO lcl_hesap_makinesi.
+
+DATA: gv_tarih TYPE d,
+      gv_sonuc TYPE i.

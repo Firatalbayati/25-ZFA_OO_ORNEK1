@@ -1,0 +1,54 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_OO_ORNEK1_CLSS
+*&---------------------------------------------------------------------*
+
+CLASS lcl_hesap_makinesi DEFINITION. "tanımlama
+
+  PUBLIC SECTION. "alt sınıftan ve dışardan(ana program codundan) olaşabilinir
+    METHODS : toplama_yap
+                  IMPORTING iv_sayi1 TYPE i
+                            iv_sayi2 TYPE i
+                  RETURNING VALUE(rv_sonuc) TYPE i,
+
+              carpma_yap
+                  RETURNING VALUE(rv_sonuc) TYPE i,
+
+              constructor IMPORTING iv_sayi1 TYPE i OPTIONAL
+                                    iv_sayi2 TYPE i OPTIONAL.
+
+    CLASS-METHODS: gunun_tarihini_donder
+                  RETURNING VALUE(rv_tarih) TYPE d.
+    DATA: mv_sayi1 TYPE i,
+          mv_sayi2 TYPE i.
+
+
+
+
+  PRIVATE SECTION." bu sınıfın hariçinde hiç bir yerden olaşılamaz
+    DATA mv_sayi3 TYPE i.
+
+
+
+ENDCLASS.
+
+CLASS lcl_hesap_makinesi IMPLEMENTATION. "uygulama
+
+  METHOD carpma_yap.
+    rv_sonuc = mv_sayi1 * mv_sayi2.
+  ENDMETHOD.
+
+  METHOD constructor.
+    mv_sayi1 = iv_sayi1.
+    mv_sayi2 = iv_sayi2.
+    mv_sayi3 = 10.
+  ENDMETHOD.
+
+  METHOD toplama_yap.
+    rv_sonuc = iv_sayi1 + iv_sayi2.
+  ENDMETHOD.
+
+  METHOD gunun_tarihini_donder.
+    rv_tarih = sy-datum.
+
+  ENDMETHOD.
+ENDCLASS.
